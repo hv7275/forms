@@ -1,0 +1,22 @@
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {% block title %}Base{% endblock %}
+  </title>
+  {% tailwind_css %}
+</head>
+<body class="bg-blue-800 text-gray-900 min-h-screen">
+
+  {% block content %}
+    <h1 class="text-2xl text-red-500 font-bold text-center mt-10">
+      Welcome to the home page.
+    </h1>
+  {% endblock %}
+
+</body>
+</html>
