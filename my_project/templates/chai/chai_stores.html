@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Forms
+{% endblock %}
+
+{% block content %}
+  <div class="container mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6 text-orange-800">Select a Chai Variety</h2>
+
+    <form method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      
+      <button type="submit"
+              class="mt-4 bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+        Search Store
+      </button>
+    </form>
+
+    {% if store %}
+      <h2 class="text-xl font-semibold mt-8 mb-4 text-green-700">Stores Available</h2>
+      <ul class="list-disc list-inside space-y-2">
+        {% for st in store %}
+          <li class="text-gray-800">{{ st.name }} – {{ st.locations }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock %}

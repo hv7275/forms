@@ -23,8 +23,8 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.home, name="base-home"),
-    path('chai/', include('chai.urls')),
+    path("chai/", views.home, name="base-home"),
+    path('', include('chai.urls')),
     
     
     path("__reload__/", include("django_browser_reload.urls")),
